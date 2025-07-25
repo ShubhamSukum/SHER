@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:4000';
+const API_BASE = 'https://sher-s.onrender.com';
 
 export const fetchContentByCode = (code) =>
   axios.get(`${API_BASE}/api/code/${code}`).then(res => res.data);
