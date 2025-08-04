@@ -1,15 +1,16 @@
-import { useState } from 'react';
-import CodeEntry from './components/CodeEntry';
-import Dashboard from './components/Dashboard';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CodeEntry from "./components/CodeEntry";
+import Dashboard from "./components/Dashboard";
 
-function App() {
-  const [code, setCode] = useState('');
-
+const App = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      {code ? <Dashboard code={code} goBack={() => setCode('')} /> : <CodeEntry onEnter={setCode} />}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CodeEntry />} />
+        <Route path="/dashboard/:code" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
